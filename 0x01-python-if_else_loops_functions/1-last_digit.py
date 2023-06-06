@@ -8,10 +8,10 @@ else:
     last_digit = ((number * -1) % 10) * -1
 
 if last_digit > 5:
-    str = "last digit of {0:d} is {1:d} and is greater than 5"
+    str = "Last digit of {0:d} is {1:d} and is greater than 5"
 elif last_digit == 0:
-    str = "last digit of {0:d} is {1:d} and is 0"
+    str = "Last digit of {0:d} is {1:d} and is 0"
 else:
-    str = "last digit of {0:d} is {1:d} and is less than 6 and not 0"
+    str = "Last digit of {0:d} is {1:d} and is less than 6 and not 0"
 
 print(str.format(number, last_digit))
