@@ -10,7 +10,7 @@ if __name__ == "__main__":
         if arg_list_len == 2:
             print("1 argument:")
         else:
-            print(f"{arg_list_len:d} arguments:")
+            print(f"{arg_list_len - 1:d} arguments:")
         for i in range(1, arg_list_len):
             num += 1
             print(f"{num:d}: {arg_list[i]:s}")
