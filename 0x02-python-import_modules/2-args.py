@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+import sys
+if __name__ == "__main__":
+    arg_list = sys.argv
+    num = 0
+    arg_list_len = len(arg_list)
+    if arg_list_len < 2:
+        print("0 arguments.")
+    else:
+        if arg_list_len == 2:
+            print("1 argument:")
+        else:
+            print(f"{arg_list_len:d} arguments:")
+        for i in range(1, arg_list_len):
+            num += 1
+            print(f"{num:d}: {arg_list[i]:s}")
