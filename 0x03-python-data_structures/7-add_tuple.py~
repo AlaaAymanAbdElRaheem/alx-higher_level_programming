@@ -1,0 +1,15 @@
+#!/usr/bin/python3
+def add_tuple(tuple_a=(), tuple_b=()):
+    if len(tuble_a) >= 2 and len(tuble_b) >= 2:
+        new_tuble = (tuble_a[0] + tuble_b[0], tuble_a[1] + tuble_b[1])
+    else:
+        if len(tuble_a) == 1:
+            new_tuble = (tuble_a[0] + tuble_b[0], 0 + tuble_b[1])
+        elif len(tuble_a) == 0:
+            new_tuble = (0 + tuble_b[0], 0 + tuble_b[1])
+        elif len(tuble_b) == 1:
+            new_tuble = (tuble_a[0] + tuble_b[0], tuble_a[1] + 0)
+        elif len(tuble_b) == 0:
+            new_tuble = (tuble_a[0] + 0, tuble_a[1] + 0)
+        else:
+            new_tuble = (0, 0)
