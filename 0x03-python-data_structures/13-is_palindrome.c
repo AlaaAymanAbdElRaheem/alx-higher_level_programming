@@ -23,23 +23,17 @@ int count(listint_t *head)
 int is_palindrome(listint_t **head)
 {
 	int num_of_elemnts = count(*head);
-	int i = 0, f, l, f_data, l_data;
+	int i = 0, l, f_data, l_data;
 	listint_t *first, *last;
 
 	if (num_of_elemnts == 0)
 		return (1);
 
+	first = *head;
 	while (i != num_of_elemnts / 2)
 	{
 		i++;
-		first = *head;
-
-		for (f = 0; f < i; f++)
-		{
-			f_data = first->n;
-			first = first->next;
-		}
-
+		f_data = first->n;
 		last = *head;
 		for (l = 0; l < num_of_elemnts - (i - 1); l++)
 		{
@@ -49,6 +43,7 @@ int is_palindrome(listint_t **head)
 
 		if (f_data != l_data)
 			return (0);
+		first = first->next;
 	}
 
 	return (1);
