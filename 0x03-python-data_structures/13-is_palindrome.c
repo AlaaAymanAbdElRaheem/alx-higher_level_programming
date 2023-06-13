@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
  * count - elemnts number of the linked list
@@ -30,6 +31,7 @@ int is_palindrome(listint_t **head)
 		return (1);
 
 	first = *head;
+	last = *head;
 	while (i != num_of_elemnts / 2)
 	{
 		i++;
@@ -40,7 +42,6 @@ int is_palindrome(listint_t **head)
 			l_data = last->n;
 			last = last->next;
 		}
-
 		if (f_data != l_data)
 			return (0);
 		first = first->next;
