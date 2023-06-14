@@ -11,9 +11,18 @@ def roman_to_int(roman_string):
             v.append(roman_num_dic[roman])
         else:
             return None
-    for i in v:
-        if i <= result:
-            result += i
+    prev = 0
+    last = 0
+    i = 0
+    while i < len(v):
+        if i == len(v) - 1:
+            result += v[i]
         else:
-            result = i - result
+            prev = v[i]
+            last = v[i + 1]
+            if prev < last:
+                result += last - prev
+            else:
+                result += prev + last
+        i += 2
     return result
