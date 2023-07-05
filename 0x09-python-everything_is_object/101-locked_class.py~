@@ -1,0 +1,11 @@
+#!/usr/bin/python3
+"""difining a locked class"""
+
+
+class LockedClass:
+    """implimintatiopn"""
+    __slots__ = ["first_name"]
+
+    def __init__(self, first_name):
+        """initializing the class"""
+        self.first_name = first_name
