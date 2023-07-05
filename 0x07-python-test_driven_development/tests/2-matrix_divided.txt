@@ -1,0 +1,14 @@
+The ``2-matrix_divided`` module
+======================
+
+Using ``matrix_divided``
+-------------------
+
+Importing function from the module
+    >>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+
+cases
+    >>> matrix_divided([[1,2], [3,4]], 2)
+    [[0.5, 1], [1.5, 2]]
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
