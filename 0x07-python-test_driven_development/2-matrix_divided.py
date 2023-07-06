@@ -5,11 +5,11 @@
 def matrix_divided(matrix, div):
     """divides all elements of a matrix"""
     if div is None:
-        raise TypeError("matrix_divided() missing 1 required positional argument:\
- 'div'")
+        raise TypeError("matrix_divided()\
+ missing 1 required positional argument: 'div'")
     elif matrix is None and div is None:
-        raise TypeError("matrix_divided() missing 2 required positional arguments:\
- 'matrix' and 'div'")
+        raise TypeError("matrix_divided()\
+ missing 2 required positional arguments: 'matrix' and 'div'")
 
     if div == 0:
         raise ZeroDivisionError("division by zero")
