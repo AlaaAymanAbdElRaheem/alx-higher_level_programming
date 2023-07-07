@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+"""defining text_indentation function"""
+
+
+def text_indentation(text):
+    """unction that prints a text with 2 new lines
+      after each of these characters: ., ? and :"""
+
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+
+    for i in range(len(text)):
+        if text[i] in [".", "?", ":"]:
+            print("{:s}\n".format(text[i]))
+        elif text[i] == " " and text[i - 1] in [".", "?", ":"]:
+            continue
+        else:
+            print("{:s}".format(text[i]), end="")
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testfile("tests/5-text_indentation.txt")
