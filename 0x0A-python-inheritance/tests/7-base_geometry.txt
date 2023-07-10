@@ -21,6 +21,10 @@ TypeError:
     Traceback (most recent call last):
         ...
     TypeError: num must be an integer
+    >>> bg.integer_validator("num", True)
+    Traceback (most recent call last):
+        ...
+    TypeError: num must be an integer
 
 ValueError:
     >>> bg.integer_validator("num", 0)
