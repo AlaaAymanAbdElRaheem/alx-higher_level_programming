@@ -3,6 +3,7 @@
 
 
 class MyInt(int):
+    """implement MyInt class"""
     def __init__(self, num):
         self.num = num
 
