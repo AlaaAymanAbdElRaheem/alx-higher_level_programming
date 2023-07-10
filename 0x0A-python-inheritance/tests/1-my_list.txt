@@ -25,3 +25,16 @@ success cases:
     []
     >>> my_list2.print_sorted()
     []
+    >>> my_list[4] = 6
+    >>> print(my_list)
+    [1, 4, 2, 3, 6]
+    >>> my_list.remove(1)
+    >>> my_list.print_sorted()
+    [2, 3, 4, 6]
+    >>> my_list = MyList([10, 1, 5, 2])
+    >>> my_list.print_sorted()
+    [1, 2, 5, 10]
+    >>> my_list = MyList(['s', 'w', 'y', 'a'])
+    >>> my_list.print_sorted()
+    ['a', 's', 'w', 'y']
+    
