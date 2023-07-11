@@ -49,6 +49,10 @@ TypeError:
     Traceback (most recent call last):
         ...
     TypeError: my_int must be an integer
+    >>> bg.integer_validator("num", (6,))
+    Traceback (most recent call last):
+        ...
+    TypeError: num must be an integer
 
 ValueError:
     >>> bg.integer_validator("num", 0)
@@ -74,6 +78,6 @@ missing argument:
         ...
      TypeError: integer_validator() takes 3 positional arguments but 4 were given
 
-
+irregular cases:
      >>> print(bg.integer_validator) # doctest: +ELLIPSIS
      <bound method BaseGeometry.integer_validator of <7-base_geometry.BaseGeometry object at...>>
