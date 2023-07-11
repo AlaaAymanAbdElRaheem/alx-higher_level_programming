@@ -73,3 +73,7 @@ missing argument:
      Traceback (most recent call last):
         ...
      TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+
+     >>> print(bg.integer_validator) # doctest: +ELLIPSIS
+     <bound method BaseGeometry.integer_validator of <7-base_geometry.BaseGeometry object at...>>
