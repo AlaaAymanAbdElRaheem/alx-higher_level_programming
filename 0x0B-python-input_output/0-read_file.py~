@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+"""defining read_file function"""
+
+
+def read_file(filename=""):
+    """implement read_file function"""
+    with open(filename, encoding="utf-8") as f:
+        data = f.read()
+    print(data)
