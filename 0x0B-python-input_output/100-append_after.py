@@ -10,9 +10,8 @@ def append_after(filename="", search_string="", new_string=""):
     new_data = []
     for line in data_list:
         new_data.append(line)
-        for word in line.split():
-            if word[:len(search_string)] == search_string:
-                new_data.append(new_string)
+        if search_string in line:
+            new_data.append(new_string)
 
     with open(filename, 'w', encoding="utf-8") as f:
         for line in new_data:
