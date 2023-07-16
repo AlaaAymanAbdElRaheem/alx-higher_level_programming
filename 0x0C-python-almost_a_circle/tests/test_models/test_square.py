@@ -44,7 +44,8 @@ class TestSquare(unittest.TestCase):
         """test display function"""
         with StringIO() as bufr, redirect_stdout(bufr):
             Square(5).display()
-            self.assertEqual(bufr.getvalue(), '#####\n#####\n#####\n#####\n#####\n')
+            self.assertEqual(bufr.getvalue(),
+                             '#####\n#####\n#####\n#####\n#####\n')
         with StringIO() as bufr, redirect_stdout(bufr):
             Square(3, 1, 3).display()
             self.assertEqual(bufr.getvalue(), '\n\n\n ###\n ###\n ###\n')
@@ -64,7 +65,6 @@ class TestSquare(unittest.TestCase):
             s1.size = "d"
         with self.assertRaises(ValueError):
             s1.size = -5
-        
 
     def test_update(self):
         """assigns an argument to each attribute:
@@ -88,11 +88,21 @@ class TestSquare(unittest.TestCase):
         s1.update(size=7, id=89, y=1)
         self.assertEqual(str(s1), '[Square] (89) 12/1 - 7')
         with self.assertRaises(TypeError):
-             s1.update(3 ,8, 9,(2,9))
+            s1.update(3, 8, 9, (2, 9))
         with self.assertRaises(ValueError):
-             s1.update(3, 0, -3, 9)
+            s1.update(3, 0, -3, 9)
         with self.assertRaises(TypeError):
-             s1.update(size="9", id=89, y=1)
+            s1.update(size="9", id=89, y=1)
         with self.assertRaises(ValueError):
-             s1.update(size = -9, id=89)
-    
+            s1.update(size=-9, id=89)
+
+    def test_to_dictionary(self):
+        """dictionary representation of a Square"""
+        s1 = Square(10, 2, 1)
+        self.assertEqual(s1.to_dictionary(),
+                         {'id': 9, 'x': 2, 'size': 10, 'y': 1})
+        s1_dictionary = s1.to_dictionary()
+        self.assertEqual(type(s1_dictionary), dict)
+        s2 = Square(1, 1)
+        s2.update(**s1_dictionary)
+        self.assertEqual(s1 == s2, False)

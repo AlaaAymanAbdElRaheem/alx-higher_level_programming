@@ -32,17 +32,17 @@ class TestRectangle(unittest.TestCase):
     def test_type_error(self):
         """test if the values not integer"""
         with self.assertRaises(TypeError):
-             Rectangle(None)
+            Rectangle(None)
         with self.assertRaises(TypeError):
-             Rectangle("3",7)
+            Rectangle("3", 7)
         with self.assertRaises(TypeError):
-             Rectangle(3 ,"9")
+            Rectangle(3, "9")
         with self.assertRaises(TypeError):
-             Rectangle(3 ,8, [87,7],2)
+            Rectangle(3, 8, [87, 7], 2)
         with self.assertRaises(TypeError):
-             Rectangle(3 ,8, 9,(2,9))
+            Rectangle(3, 8, 9, (2, 9))
         with self.assertRaises(TypeError):
-             Rectangle({3: 9} ,8, 9)
+            Rectangle({3: 9}, 8, 9)
         with self.assertRaises(TypeError):
             Rectangle(True, 4)
         with self.assertRaises(TypeError):
@@ -51,19 +51,19 @@ class TestRectangle(unittest.TestCase):
     def test_value_error(self):
         """tests if the value is not valid"""
         with self.assertRaises(ValueError):
-             Rectangle(-3,7)
+            Rectangle(-3, 7)
         with self.assertRaises(ValueError):
-             Rectangle(3,-7)
+            Rectangle(3, -7)
         with self.assertRaises(ValueError):
-             Rectangle(3, 7, -3, 9)
+            Rectangle(3, 7, -3, 9)
         with self.assertRaises(ValueError):
-             Rectangle(3, 7, 3, -9)
+            Rectangle(3, 7, 3, -9)
         with self.assertRaises(ValueError):
-             Rectangle(3, 7, -3, 9)
+            Rectangle(3, 7, -3, 9)
         with self.assertRaises(ValueError):
-             Rectangle(0, 7, 3, 9)
+            Rectangle(0, 7, 3, 9)
         with self.assertRaises(ValueError):
-             Rectangle(3, 0, -3, 9)
+            Rectangle(3, 0, -3, 9)
 
     def test_area(self):
         """Test area"""
@@ -71,19 +71,19 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(Rectangle(2, 10, 0, 0).area(), 20)
         self.assertEqual(Rectangle(8, 7, 0, 0, 12).area(), 56)
 
-
     def test_display(self):
         """test display function"""
         with StringIO() as bufr, redirect_stdout(bufr):
             Rectangle(4, 6).display()
-            self.assertEqual(bufr.getvalue(), '####\n####\n####\n####\n####\n####\n')
+            self.assertEqual(bufr.getvalue(),
+                             '####\n####\n####\n####\n####\n####\n')
         with StringIO() as bufr, redirect_stdout(bufr):
             Rectangle(2, 3, 2, 2).display()
             self.assertEqual(bufr.getvalue(), '\n\n  ##\n  ##\n  ##\n')
 
-
     def test_str(self):
-        """__str__ method returns [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
+        """__str__ method returns
+        [Rectangle] (<id>) <x>/<y> - <width>/<height>"""
         r1 = Rectangle(4, 6, 2, 1, 12)
         self.assertEqual(str(r1), "[Rectangle] (12) 2/1 - 4/6")
 
@@ -104,9 +104,9 @@ class TestRectangle(unittest.TestCase):
         r1.update(99, 1, 2, 3, 4)
         self.assertEqual(str(r1), '[Rectangle] (99) 3/4 - 1/2')
         with self.assertRaises(TypeError):
-             r1.update(3 ,8, 9,(2,9))
+            r1.update(3, 8, 9, (2, 9))
         with self.assertRaises(ValueError):
-             r1.update(3, 0, -3, 9)
+            r1.update(3, 0, -3, 9)
         r1 = Rectangle(10, 10, 10, 10)
         r1.update(height=1)
         self.assertEqual(str(r1), '[Rectangle] (9) 10/10 - 10/1')
@@ -120,10 +120,10 @@ class TestRectangle(unittest.TestCase):
     def test_to_dictionary(self):
         """dictionary representation of a Rectangle"""
         r1 = Rectangle(10, 2, 1, 9)
-        self.assertEqual(r1.to_dictionary(), {'x': 1, 'y': 9, 'id': 6, 'height': 2, 'width': 10})
+        self.assertEqual(r1.to_dictionary(),
+                         {'x': 1, 'y': 9, 'id': 6, 'height': 2, 'width': 10})
         r1_dictionary = r1.to_dictionary()
         self.assertEqual(type(r1_dictionary), dict)
         r2 = Rectangle(1, 1)
         r2.update(**r1_dictionary)
         self.assertEqual(r1 == r2, False)
-        
