@@ -105,3 +105,20 @@ class Rectangle(Base):
             for k, v in kwargs.items():
                 if k in attrs:
                     setattr(self, k, v)
+
+    def to_dictionary(self):
+        """returns the dictionary representation of a Rectangle:
+            This dictionary contains:
+                                     id
+                                     width
+                                     height
+                                       x
+                                       y"""
+        dic = {}
+        dic["id"] = self.id
+        dic["width"] = self.width
+        dic["height"] = self.height
+        dic["x"] = self.x
+        dic["y"] = self.y
+        return dic
+    
