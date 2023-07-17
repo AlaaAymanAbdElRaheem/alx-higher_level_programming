@@ -32,7 +32,7 @@ class TestBase(unittest.TestCase):
         dic = {'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8}
         json_dic = Base.to_json_string(dic)
         self.assertEqual(
-            json_dic, '[{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]')
+            json_dic, '{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}')
 
     def test_from_json_string(self):
         """returns the list of the JSON string representation json_string"""
@@ -44,8 +44,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(list_input, [{'height': 4, 'width': 10, 'id': 89},
                                       {'height': 7, 'width': 1, 'id': 7}])
         self.assertEqual(json_list_input,
-                         '[{"height": 4, "width": 10, "id": 89},\
- {"height": 7, "width": 1, "id": 7}]')
+                         '[{"id": 89, "width": 10, "height": 4}, {"id": 7, "width": 1, "height": 7}]')
         self.assertEqual(list_output, [{'height': 4, 'width': 10, 'id': 89},
                                        {'height': 7, 'width': 1, 'id': 7}])
 
