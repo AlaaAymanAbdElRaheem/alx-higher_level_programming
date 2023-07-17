@@ -64,7 +64,7 @@ class Base:
                 data = cls.from_json_string(f.read())
             for elm in data:
                 list_of_inst.append(cls.create(**elm))
-        except FileNotFound:
+        except FileNotFoundError:
             pass
 
         return list_of_inst
