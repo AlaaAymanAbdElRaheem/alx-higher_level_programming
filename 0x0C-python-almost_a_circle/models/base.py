@@ -3,6 +3,7 @@
 
 
 import json
+import csv
 
 
 class Base:
@@ -64,6 +65,42 @@ class Base:
                 data = cls.from_json_string(f.read())
             for elm in data:
                 list_of_inst.append(cls.create(**elm))
+        except FileNotFoundError:
+            pass
+
+        return list_of_inst
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Writes the CSV string representation of list_objs to a file"""
+        filename = cls.__name__ + '.csv'
+
+        with open(filename, 'w', encoding='utf-8') as f:
+            list_of_dic = []
+            if list_objs:
+                if cls.__name__ == "Rectangle":
+                    fields = ['id', 'width', 'height', 'x', 'y']
+                else:
+                    fields = ['id', 'size', 'x', 'y']
+                writer = csv.DictWriter(f, fieldnames=fields)
+                writer.writeheader()
+                for obj in list_objs:
+                    list_of_dic.append(obj.to_dictionary())
+                for o in list_of_dic:
+                    writer.writerow(o)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Retuens list of instances from CSV file"""
+        filename = cls.__name__ + ".csv"
+        list_of_inst = []
+
+        try:
+            with open(filename, 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for elm in reader:
+                    dic = {k: int(v) for k, v in elm.items()}
+                    list_of_inst.append(cls.create(**dic))
         except FileNotFoundError:
             pass
 
