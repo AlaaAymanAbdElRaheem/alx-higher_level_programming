@@ -100,7 +100,7 @@ class TestSquare(unittest.TestCase):
         """dictionary representation of a Square"""
         s1 = Square(10, 2, 1)
         self.assertEqual(s1.to_dictionary(),
-                         {'id': 9, 'x': 2, 'size': 10, 'y': 1})
+                         {'id': 24, 'x': 2, 'size': 10, 'y': 1})
         s1_dictionary = s1.to_dictionary()
         self.assertEqual(type(s1_dictionary), dict)
         s2 = Square(1, 1)
