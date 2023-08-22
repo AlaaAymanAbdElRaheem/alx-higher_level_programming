@@ -16,6 +16,29 @@ int count(listint_t *head)
 }
 
 /**
+ * reverse_listint - function that reverses a listint_t linked list.
+ * @head: pointer to the linked list
+ * Return: a pointer to the first node of the reversed list
+ */
+
+listint_t *reverse_listint(listint_t **head)
+{
+	listint_t *prev_node = NULL, *next_node = NULL;
+
+	while (*head != NULL)
+	{
+		next_node = (*head)->next;
+		(*head)->next = prev_node;
+		prev_node = *head;
+		*head = next_node;
+	}
+
+	*head = prev_node;
+
+	return (*head);
+}
+
+/**
  * is_palindrome -checks if a singly linked list is a palindrome.
  * @head: head node
  * Return: 0 if not ot 1 if it is
@@ -31,7 +54,6 @@ int is_palindrome(listint_t **head)
 		return (1);
 
 	first = *head;
-	last = *head;
 	while (i != num_of_elemnts / 2)
 	{
 		i++;
