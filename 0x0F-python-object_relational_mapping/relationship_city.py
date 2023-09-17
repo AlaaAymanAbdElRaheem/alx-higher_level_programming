@@ -3,9 +3,7 @@
 and an instance Base = declarative_base()"""
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from relationship_state import State
-
-Base = declarative_base()
+from relationship_state import State, Base
 
 
 class City(Base):
