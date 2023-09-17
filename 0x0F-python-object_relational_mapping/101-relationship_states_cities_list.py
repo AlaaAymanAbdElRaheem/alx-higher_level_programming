@@ -20,10 +20,9 @@ if __name__ == "__main__":
     session = session()
     results = session.query(State).order_by(State.id).all()
 
-    num = 1
+
     for result in results:
-        print("{}: {}".format(num, State.name))
+        print("{}: {}".format(result.id, result.name))
         for city in result.cities:
             print("    {}: {}".format(city.id, city.name))
-        num += 1
     session.close()
